@@ -2,3 +2,13 @@ name: GPStone
 version: '${project.version}'
 main: fr.delmath.GPStone
 api-version: 1.20
+commands:
+  wand:
+    description: get wand to select zone
+    usage: /<command>
+  paste:
+    description: coller la dernière structure générer
+  generate:
+    description: generer un système de redstone
+
+

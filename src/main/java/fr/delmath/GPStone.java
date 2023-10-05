@@ -1,9 +1,8 @@
 package fr.delmath;
 
-import org.bukkit.Bukkit;
+import fr.delmath.comands.CommandEvent;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import fr.delmath.utils.print;
@@ -24,8 +23,8 @@ public final class GPStone extends JavaPlugin {
         configFile = new File(getDataFolder(), "config.yml");
         if (!configFile.exists()) {
 
-            print.send_to_console("/!\\ Config Error /!\\");
-            print.send_to_console_ln("try to fix");
+            print.send_to_console_ln("/!\\ Config Error /!\\");
+            print.send_to_console("try to fix");
             try {
                 if (!configFile.getParentFile().exists()) {
                     configFile.getParentFile().mkdirs();
@@ -43,8 +42,8 @@ public final class GPStone extends JavaPlugin {
             }
         }
         if (!config_validation()) {
-            print.send_to_console("/!\\ Config Error /!\\");
-            print.send_to_console_ln("try to fix");
+            print.send_to_console_ln("/!\\ Config Error /!\\");
+            print.send_to_console("try to fix");
             try {
                 if (!configFile.getParentFile().exists()) {
                     configFile.getParentFile().mkdirs();
@@ -61,7 +60,12 @@ public final class GPStone extends JavaPlugin {
                 return;
             }
         }
+
         config = YamlConfiguration.loadConfiguration(configFile);
+
+        this.getCommand("wand").setExecutor(new CommandEvent());
+        this.getCommand("paste").setExecutor(new CommandEvent());
+        this.getCommand("generate").setExecutor(new CommandEvent());
     }
 
     @Override
