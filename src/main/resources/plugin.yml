@@ -1,0 +1,4 @@
+name: GPStone
+version: '${project.version}'
+main: fr.delmath.GPStone
+api-version: 1.20

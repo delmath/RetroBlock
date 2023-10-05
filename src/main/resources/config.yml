@@ -1,0 +1,5 @@
+# Configuration du plugin de construction de redstone
+api-token: "VotreTokenD'APISecret"
+parametres:
+  cooldown-temps: 30 # En secondes
+  limite-schemas: 10 # Nombre maximum de schémas par joueur
