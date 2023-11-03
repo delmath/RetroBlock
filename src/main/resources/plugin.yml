@@ -1,14 +1,17 @@
-name: GPStone
+name: RetroBlock
 version: '${project.version}'
-main: fr.delmath.GPStone
-api-version: 1.20
+main: fr.delmath.RetroBlock
+api-version: '1.13'
 commands:
   wand:
-    description: get wand to select zone
+    description: recuperer la wand de selection de zone
     usage: /<command>
-  paste:
-    description: coller la dernière structure générer
-  generate:
-    description: generer un système de redstone
-
-
+  select:
+    description: selectioner une zone
+    usage: /<command> <location 1> <location 2>
+  history:
+    description: recuperer l'historique de la zone
+    usage: /<command> <option>
+  back:
+    description: fait revenir en arrière la zone selectioner
+    usage: /<command> <option> <delta>
