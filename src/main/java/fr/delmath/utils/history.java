@@ -179,17 +179,24 @@ public class history {
             calendar.add(Calendar.HOUR, -hours);
             Date targetDate = calendar.getTime();
 
+            Bukkit.broadcastMessage(targetDate.toString());
+
             for (JsonNode locationNode : rootNode) {
                 String coordonnee = locationNode.toString();
+                ModifyBlock lastValidModifyBlock = null;
+
                 for (JsonNode blockChange : locationNode) {
                     String dateStr = blockChange.get("date").asText();
                     Date date = dateFormat.parse(dateStr);
 
-                    if (date.before(targetDate)) {
+                    if (targetDate.before(date)) {
                         String blockAvant = blockChange.get("base block").asText();
-                        ModifyBlock modifyBlock = new ModifyBlock(coordonnee, blockAvant);
-                        modifyBlocks.add(modifyBlock);
+                        lastValidModifyBlock = new ModifyBlock(coordonnee, blockAvant);
                     }
+                }
+
+                if (lastValidModifyBlock != null) {
+                    modifyBlocks.add(lastValidModifyBlock);
                 }
             }
         } catch (Exception e) {
@@ -198,6 +205,7 @@ public class history {
 
         return modifyBlocks;
     }
+
 
 }
 

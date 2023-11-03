@@ -1,6 +1,5 @@
 package fr.delmath.cmd;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import fr.delmath.RetroBlock;
 import fr.delmath.utils.history;
 import fr.delmath.utils.ModifyBlock;
@@ -11,7 +10,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,7 +29,7 @@ public class BackCmd implements Listener, CommandExecutor {
                     boolean isValid = true;
 
                     for (char c : args[0].toCharArray()) {
-                        if (!(Character.isDigit(c) || c == 'm' || c == 's' || c == 'n')) {
+                        if (!(Character.isDigit(c) || c == 'm' || c == 's' || c == 'h')) {
                             isValid = false;
                             break; // Sortir de la boucle dès qu'un caractère invalide est trouvé
                         }
